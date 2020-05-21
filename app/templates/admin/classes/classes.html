@@ -1,0 +1,32 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}
+    {% if add_classes %}
+        Add Classes
+    {% else %}
+        Edit Classes
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+          <center>
+          <div class="form" style="width: 400px; text-align: left">
+            {% if add_classes %}
+                <h1>Add Classes</h1><hr class="line-blue">
+            {% else %}
+                <h1>Edit Classes Info</h1><hr class="line-blue">
+            {% endif %}
+            <br/>
+            {{ wtf.quick_form(form) }}
+            </div>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

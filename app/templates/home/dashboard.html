@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1 style="text-align: left; margin-bottom: 20px"><span  class="line">The Dashboard</span></h1>
+                    <form action="/dashboard">
+                        <select name="feature_name">
+                            {% for feature in feature_names %}
+                                {% if feature == current_feature_name %}
+                                    <option selected value="{{ feature }}">{{ feature }}</option>
+                                {% else %}
+                                    <option value="{{ feature }}">{{ feature }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Submit">
+                    </form>
+                    {% if ia1 %}
+
+                    <h2> Internal Assessment 1 <hr class="line-blue"></h2>
+
+                    {{script|safe}}
+                    {{div|safe}}
+                    {% else %}
+                    <div style="text-align: center">
+                        <h3> No Internal Assessment 1 Marks have been added. </h3>
+                    </div>
+                    {% endif %}
+                    <br><hr>
+                    {% if ia2 %}
+                    <h2> Internal Assessment 2 </h2><hr class="line-blue">
+                        {{script2|safe}}
+                        {{div2|safe}}
+                    {% else %}
+                        <div style="text-align: center">
+                            <h3> No Internal Assessment 2 Marks have been added. </h3>
+                        </div>
+                    {% endif %}
+                    <br><hr>
+
+                    {% if ia3 %}
+                    <h2> Internal Assessment 3 </h2><hr class="line-blue">
+                        {{script3|safe}}
+                        {{div3|safe}}
+                    {% else %}
+                        <div style="text-align: center">
+                            <h3> No Internal Assessment 3 Marks have been added. </h3>
+                        </div>
+                    {% endif %}
+
+                    <hr class="intro-divider">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

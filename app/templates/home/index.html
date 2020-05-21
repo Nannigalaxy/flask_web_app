@@ -1,0 +1,55 @@
+{% import "bootstrap/utils.html" as utils %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }} | Student DB</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <link href="{{ url_for('static', filename='main2.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='font-awesome.css') }}" rel="stylesheet"> -->
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Alata|Playfair+Display&display=swap" rel="stylesheet">
+
+
+
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+</head>
+<body style="height: 100%" class="mainpage">
+  <div class="wrapper">
+<br/>
+  {{ utils.flashed_messages() }}
+  <br/>
+    <div class="index">
+      <h1 class="maingrad" style="margin-top: -110px;">Marks Visualisation Database Project</h1>
+      <img src="{{url_for('static', filename='img/data.png')}}" style="width: 400px">
+      <h2>“The goal is to turn data into information, and information into insight.”</h2><br> <h4 style="margin-top: -30px">– Carly Fiorina, former CEO, Hewlett-Packard Co.</h4>
+
+                    <h3 style="margin-top: 30px">A Database Data Visualisation using Python, Flask, SQLAlchemy and Bokeh.</h3>
+
+
+                    <p>By Nandan M and Suman A</p>
+                    <center>
+                    <a href="{{ url_for('auth.login') }}" class="btn lgnbtn" style="margin-top: 20px; margin-bottom: 10px">
+                    <i class="fa fa-sign-in"> Login</i><div class="lgnbtn2"></div></a>
+                    </center>
+      <div class="push"></div>
+    </div>
+
+
+  </div>
+</body>
+</html>

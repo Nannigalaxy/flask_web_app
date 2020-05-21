@@ -1,0 +1,74 @@
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Internal Assessment 1{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1"><span class="line"> Internal Assessment 1</span></h1>
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th width="15%"> USN </th>
+                  <th width="15%"> 17CS51 </th>
+                  <th width="15%"> 17CS52 </th>
+                  <th width="15%"> 17CS53 </th>
+                  <th width="15%"> 17CS54 </th>
+                  <th width="15%"> 17CS553 </th>
+                  <th width="15%"> 17CS562 </th>
+                </tr>
+              </thead>
+              <tbody>
+                    {% for ia in ias %}
+                <tr>
+                  <td> {{ ia.usn}} </td>
+                  <td> {{ ia.cs51 }} </td>
+                  <td> {{ ia.cs52 }} </td>
+                  <td> {{ ia.cs53 }} </td>
+                  <td> {{ ia.cs54 }} </td>
+                  <td> {{ ia.cs553 }} </td>
+                  <td> {{ ia.cs562 }} </td>
+
+                {% if isadmin or isct %}
+
+                  <td>
+                    <a href="{{ url_for('admin.edit_ia1', id=ia.usn) }}">
+                      <i class="fa fa-pencil"></i> Edit
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ url_for('admin.delete_ia1', id=ia.usn) }}">
+                      <i class="fa fa-trash"></i> Delete
+                    </a>
+                  </td>
+                {% endif %}
+              {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No IA1 Marks have been added. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+        {% if isadmin or isct %}
+          <a href="{{ url_for('admin.add_ia1') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Add IA 1 marks
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

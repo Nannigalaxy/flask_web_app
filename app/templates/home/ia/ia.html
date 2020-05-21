@@ -1,0 +1,36 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}
+Internal Assessment
+{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+          <center>
+          <div class="form" style="width: 400px; text-align: left">
+
+            <a href="{{ url_for('admin.list_ias1') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Internal Assessment 1
+          </a>
+
+          <a href="{{ url_for('admin.list_ias2') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Internal Assessment 2
+          </a>
+          <a href="{{ url_for('admin.list_ias3') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Internal Assessment 3
+          </a>
+
+            </div>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

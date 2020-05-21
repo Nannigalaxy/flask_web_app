@@ -1,0 +1,36 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}
+    {% if add_cc %}
+        Add Courses to Class
+    {% else %}
+        Edit Course to Class
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <div class="center">
+          <center>
+          <div class="form" style="width: 400px; text-align: left">
+            {% if add_cc %}
+                <h1>Add Course</h1><hr class="line-blue">
+            {% else %}
+                <h1>Edit Course Info</h1><hr class="line-blue">
+            {% endif %}
+            <br/>
+            {{ wtf.quick_form(form) }}
+            </div>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

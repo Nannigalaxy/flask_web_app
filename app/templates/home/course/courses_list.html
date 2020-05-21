@@ -1,0 +1,52 @@
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1><span class="line">Courses</span></h1>
+        {% if courses %}
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th width="15%"> Code </th>
+                  <th width="40%"> Title </th>
+                  <th width="15%"> Credit </th>
+                  <th width="15%"> Scheme </th>
+                  <th width="15%"> Course Type </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for course in courses %}
+                <tr>
+                  <td> {{ course.code }} </td>
+                  <td> {{ course.title }} </td>
+                  <td> {{ course.credit }} </td>
+                  <td> {{ course.scheme }} </td>
+                  <td> {{ course.course_type }} </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No Course have been added. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
